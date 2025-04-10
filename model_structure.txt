@@ -1,0 +1,666 @@
+3 Set Declarations
+    buses : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     1 :    Any :    9 : {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    cost_dims : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     1 :    Any :    3 : {0, 1, 2}
+    lines : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     1 :    Any :    9 : {0, 1, 2, 3, 4, 5, 6, 7, 8}
+
+8 Param Declarations
+    B : Size=81, Index=buses*buses, Domain=Any, Default=0.0, Mutable=False
+        Key    : Value
+        (0, 0) :  17.361111111111114
+        (0, 3) : -17.361111111111114
+        (1, 1) :                16.0
+        (1, 7) :               -16.0
+        (2, 2) :  17.064846416382252
+        (2, 5) : -17.064846416382252
+        (3, 0) : -17.361111111111114
+        (3, 3) :   39.99538221085536
+        (3, 4) : -10.869565217391305
+        (3, 8) :  -11.76470588235294
+        (4, 3) : -10.869565217391305
+        (4, 4) :  16.751918158567776
+        (4, 5) :   -5.88235294117647
+        (5, 2) : -17.064846416382252
+        (5, 4) :   -5.88235294117647
+        (5, 5) :   32.86783427819364
+        (5, 6) :  -9.920634920634921
+        (6, 5) :  -9.920634920634921
+        (6, 6) :   23.80952380952381
+        (6, 7) :  -13.88888888888889
+        (7, 1) :               -16.0
+        (7, 6) :  -13.88888888888889
+        (7, 7) :   36.10006901311249
+        (7, 8) :  -6.211180124223603
+        (8, 3) :  -11.76470588235294
+        (8, 7) :  -6.211180124223603
+        (8, 8) :  17.975886006576545
+    C : Size=27, Index=buses*cost_dims, Domain=Any, Default=0.0, Mutable=False
+        Key    : Value
+        (0, 0) :   0.11
+        (0, 1) :    5.0
+        (0, 2) :  150.0
+        (1, 0) :  0.085
+        (1, 1) :    1.2
+        (1, 2) :  600.0
+        (2, 0) : 0.1225
+        (2, 1) :    1.0
+        (2, 2) :  335.0
+        (3, 0) :    0.0
+        (3, 1) :    0.0
+        (3, 2) :    0.0
+        (4, 0) :    0.0
+        (4, 1) :    0.0
+        (4, 2) :    0.0
+        (5, 0) :    0.0
+        (5, 1) :    0.0
+        (5, 2) :    0.0
+        (6, 0) :    0.0
+        (6, 1) :    0.0
+        (6, 2) :    0.0
+        (7, 0) :    0.0
+        (7, 1) :    0.0
+        (7, 2) :    0.0
+        (8, 0) :    0.0
+        (8, 1) :    0.0
+        (8, 2) :    0.0
+    Emis_cap : Size=9, Index=buses, Domain=Any, Default=0.0, Mutable=False
+        Key : Value
+          0 :   0.8
+          1 :   0.8
+          2 :   0.8
+          3 :   0.8
+          4 :   0.8
+          5 :   0.8
+          6 :   0.8
+          7 :   0.8
+          8 :   0.8
+    PD : Size=9, Index=buses, Domain=Any, Default=0.0, Mutable=False
+        Key : Value
+          0 :   0.0
+          1 :   0.0
+          2 :   0.0
+          3 :   0.0
+          4 :   0.9
+          5 :   0.0
+          6 :   1.0
+          7 :   0.0
+          8 :  1.25
+    PG_MAX : Size=9, Index=buses, Domain=Any, Default=0.0, Mutable=False
+        Key : Value
+          0 : 2.500000000001
+          1 : 3.000000000001
+          2 : 2.700000000001
+          3 :            0.0
+          4 :            0.0
+          5 :            0.0
+          6 :            0.0
+          7 :            0.0
+          8 :            0.0
+    PG_MIN : Size=9, Index=buses, Domain=Any, Default=0.0, Mutable=False
+        Key : Value
+          0 : 0.099999999999
+          1 : 0.099999999999
+          2 : 0.099999999999
+          3 :            0.0
+          4 :            0.0
+          5 :            0.0
+          6 :            0.0
+          7 :            0.0
+          8 :            0.0
+    PL_MAX : Size=9, Index=lines, Domain=Any, Default=0.0, Mutable=False
+        Key : Value
+          0 :  2.500000000000015
+          1 :  2.500000000000015
+          2 :  1.499999999999985
+          3 : 3.0000000000000298
+          4 :  1.499999999999985
+          5 :  2.500000000000015
+          6 :  2.500000000000015
+          7 :  2.500000000000015
+          8 :  2.500000000000015
+    w_g : Size=9, Index=buses, Domain=Any, Default=0.0, Mutable=False
+        Key : Value
+          0 :   0.3
+          1 :   0.5
+          2 :   0.8
+          3 :   0.0
+          4 :   0.0
+          5 :   0.0
+          6 :   0.0
+          7 :   0.0
+          8 :   0.0
+
+5 Var Declarations
+    PG : Size=9, Index=buses
+        Key : Lower          : Value              : Upper          : Fixed : Stale : Domain
+          0 : 0.099999999999 : 0.8656449801576198 : 2.500000000001 : False : False :  Reals
+          1 : 0.099999999999 : 1.3437758550964396 : 3.000000000001 : False : False :  Reals
+          2 : 0.099999999999 : 0.9405791647459405 : 2.700000000001 : False : False :  Reals
+          3 :           None :                  0 :           None :  True :  True :  Reals
+          4 :           None :                  0 :           None :  True :  True :  Reals
+          5 :           None :                  0 :           None :  True :  True :  Reals
+          6 :           None :                  0 :           None :  True :  True :  Reals
+          7 :           None :                  0 :           None :  True :  True :  Reals
+          8 :           None :                  0 :           None :  True :  True :  Reals
+    p_in : Size=81, Index=buses*buses
+        Key    : Lower : Value                   : Upper : Fixed : Stale : Domain
+        (0, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 3) :     0 : -1.0479733505071521e-25 :  None : False : False : NonNegativeReals
+        (0, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 7) :     0 :  -8.217097687190494e-21 :  None : False : False : NonNegativeReals
+        (1, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 5) :     0 :   3.158537274855551e-10 :  None : False : False : NonNegativeReals
+        (2, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 0) :     0 :      0.8656449809336598 :  None : False : False : NonNegativeReals
+        (3, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 4) :     0 :   9.820194681312212e-09 :  None : False : False : NonNegativeReals
+        (3, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 8) :     0 :  4.4649751478988795e-09 :  None : False : False : NonNegativeReals
+        (4, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 3) :     0 :     0.33737748551155283 :  None : False : False : NonNegativeReals
+        (4, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 5) :     0 :      0.5626225281955958 :  None : False : False : NonNegativeReals
+        (4, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 2) :     0 :      0.9405791650618145 :  None : False : False : NonNegativeReals
+        (5, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 4) :     0 :  -7.582502210713478e-10 :  None : False : False : NonNegativeReals
+        (5, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 6) :     0 :   7.615771710806299e-10 :  None : False : False : NonNegativeReals
+        (5, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 5) :     0 :     0.37795664866693784 :  None : False : False : NonNegativeReals
+        (6, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 7) :     0 :      0.6220433717827675 :  None : False : False : NonNegativeReals
+        (6, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 1) :     0 :      1.3437758538172973 :  None : False : False : NonNegativeReals
+        (7, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 6) :     0 :   3.039449687055624e-09 :  None : False : False : NonNegativeReals
+        (7, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 8) :     0 :   1.927774943601699e-09 :  None : False : False : NonNegativeReals
+        (8, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 3) :     0 :       0.528267508931164 :  None : False : False : NonNegativeReals
+        (8, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 7) :     0 :      0.7217324974615185 :  None : False : False : NonNegativeReals
+        (8, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+    p_out : Size=81, Index=buses*buses
+        Key    : Lower : Value                   : Upper : Fixed : Stale : Domain
+        (0, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 3) :     0 :      0.8656449801576198 :  None : False : False : NonNegativeReals
+        (0, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (0, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (1, 7) :     0 :      1.3437758550964396 :  None : False : False : NonNegativeReals
+        (1, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 5) :     0 :      0.9405791650617943 :  None : False : False : NonNegativeReals
+        (2, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (2, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 0) :     0 :   7.760400210021256e-10 :  None : False : False : NonNegativeReals
+        (3, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 4) :     0 :       0.337377485511552 :  None : False : False : NonNegativeReals
+        (3, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (3, 8) :     0 :      0.5282675089312376 :  None : False : False : NonNegativeReals
+        (4, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 3) :     0 :   9.820195563376156e-09 :  None : False : False : NonNegativeReals
+        (4, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 5) :     0 :   3.886953037197519e-09 :  None : False : False : NonNegativeReals
+        (4, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (4, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 2) :     0 :   3.158740602985913e-10 :  None : False : False : NonNegativeReals
+        (5, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 4) :     0 :      0.5626225235503926 :  None : False : False : NonNegativeReals
+        (5, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 6) :     0 :     0.37795664119887484 :  None : False : False : NonNegativeReals
+        (5, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (5, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 5) :     0 :   8.229640098616426e-09 :  None : False : False : NonNegativeReals
+        (6, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (6, 7) :     0 :   1.222006515320194e-08 :  None : False : False : NonNegativeReals
+        (6, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 1) :     0 : -1.2791424120504318e-09 :  None : False : False : NonNegativeReals
+        (7, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 3) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 6) :     0 :       0.622043362602152 :  None : False : False : NonNegativeReals
+        (7, 7) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (7, 8) :     0 :      0.7217324974615124 :  None : False : False : NonNegativeReals
+        (8, 0) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 1) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 2) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 3) :     0 :   4.464901510855333e-09 :  None : False : False : NonNegativeReals
+        (8, 4) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 5) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 6) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+        (8, 7) :     0 :  1.9277811731394926e-09 :  None : False : False : NonNegativeReals
+        (8, 8) :     0 :                       0 :  None :  True :  True : NonNegativeReals
+    theta : Size=9, Index=buses
+        Key : Lower                : Value                 : Upper               : Fixed : Stale : Domain
+          0 : -0.39269908169872414 :                     0 : 0.39269908169872414 :  True :  True :  Reals
+          1 : -0.39269908169872414 :   0.10542103398774796 : 0.39269908169872414 : False : False :  Reals
+          2 : -0.39269908169872414 :   0.06986388956589765 : 0.39269908169872414 : False : False :  Reals
+          3 : -0.39269908169872414 : -0.049861150857078894 : 0.39269908169872414 : False : False :  Reals
+          4 : -0.39269908169872414 :  -0.08089987862068376 : 0.39269908169872414 : False : False :  Reals
+          5 : -0.39269908169872414 :  0.014745950511785523 : 0.39269908169872414 : False : False :  Reals
+          6 : -0.39269908169872414 : -0.023352078844294084 : 0.39269908169872414 : False : False :  Reals
+          7 : -0.39269908169872414 :  0.021435043044220482 : 0.39269908169872414 : False : False :  Reals
+          8 : -0.39269908169872414 :  -0.09476388873671122 : 0.39269908169872414 : False : False :  Reals
+    w : Size=9, Index=buses
+        Key : Lower : Value               : Upper : Fixed : Stale : Domain
+          0 :     0 :                 0.3 :   0.8 :  True :  True :  Reals
+          1 :     0 :                 0.5 :   0.8 :  True :  True :  Reals
+          2 :     0 :                 0.8 :   0.8 :  True :  True :  Reals
+          3 :     0 :  0.3000000041415154 :   0.8 : False : False :  Reals
+          4 :     0 :  0.6125680680118166 :   0.8 : False : False :  Reals
+          5 :     0 :                 0.8 :   0.8 : False : False :  Reals
+          6 :     0 :  0.6133869923654578 :   0.8 : False : False :  Reals
+          7 :     0 :  0.5000000001352107 :   0.8 : False : False :  Reals
+          8 :     0 : 0.41547720083160683 :   0.8 : False : False :  Reals
+
+1 Objective Declarations
+    obj_cost : Size=1, Index=None, Active=True
+        Key  : Active : Sense    : Expression
+        None :   True : minimize : (100*PG[0])**2*0.11 + 500.0*PG[0] + 150.0 + (100*PG[1])**2*0.085 + 120.0*PG[1] + 600.0 + (100*PG[2])**2*0.1225 + 100*PG[2] + 335.0 + (100*PG[3])**2*0.0 + 0.0*PG[3] + (100*PG[4])**2*0.0 + 0.0*PG[4] + (100*PG[5])**2*0.0 + 0.0*PG[5] + (100*PG[6])**2*0.0 + 0.0*PG[6] + (100*PG[7])**2*0.0 + 0.0*PG[7] + (100*PG[8])**2*0.0 + 0.0*PG[8]
+
+8 Constraint Declarations
+    backward_branch_flow : Size=9, Index={1, 2, 3, 4, 5, 6, 7, 8, 9}, Active=True
+        Key : Lower : Body                                                              : Upper : Active
+          1 :   0.0 : p_in[3,0] - p_out[3,0] - 17.361111111111114*(theta[0] - theta[3]) :   0.0 :   True
+          2 :   0.0 : p_in[4,3] - p_out[4,3] - 10.869565217391305*(theta[3] - theta[4]) :   0.0 :   True
+          3 :   0.0 :   p_in[5,4] - p_out[5,4] - 5.88235294117647*(theta[4] - theta[5]) :   0.0 :   True
+          4 :   0.0 : p_in[5,2] - p_out[5,2] - 17.064846416382252*(theta[2] - theta[5]) :   0.0 :   True
+          5 :   0.0 :  p_in[6,5] - p_out[6,5] - 9.920634920634921*(theta[5] - theta[6]) :   0.0 :   True
+          6 :   0.0 :  p_in[7,6] - p_out[7,6] - 13.88888888888889*(theta[6] - theta[7]) :   0.0 :   True
+          7 :   0.0 :               p_in[1,7] - p_out[1,7] - 16.0*(theta[7] - theta[1]) :   0.0 :   True
+          8 :   0.0 :  p_in[8,7] - p_out[8,7] - 6.211180124223603*(theta[7] - theta[8]) :   0.0 :   True
+          9 :   0.0 :  p_in[3,8] - p_out[3,8] - 11.76470588235294*(theta[8] - theta[3]) :   0.0 :   True
+    branch_flow_direction : Size=81, Index=buses*buses, Active=True
+        Key    : Lower : Body                 : Upper : Active
+        (0, 0) :  -Inf : p_out[0,0]*p_in[0,0] :   0.0 :   True
+        (0, 1) :  -Inf : p_out[0,1]*p_in[0,1] :   0.0 :   True
+        (0, 2) :  -Inf : p_out[0,2]*p_in[0,2] :   0.0 :   True
+        (0, 3) :  -Inf : p_out[0,3]*p_in[0,3] :   0.0 :   True
+        (0, 4) :  -Inf : p_out[0,4]*p_in[0,4] :   0.0 :   True
+        (0, 5) :  -Inf : p_out[0,5]*p_in[0,5] :   0.0 :   True
+        (0, 6) :  -Inf : p_out[0,6]*p_in[0,6] :   0.0 :   True
+        (0, 7) :  -Inf : p_out[0,7]*p_in[0,7] :   0.0 :   True
+        (0, 8) :  -Inf : p_out[0,8]*p_in[0,8] :   0.0 :   True
+        (1, 0) :  -Inf : p_out[1,0]*p_in[1,0] :   0.0 :   True
+        (1, 1) :  -Inf : p_out[1,1]*p_in[1,1] :   0.0 :   True
+        (1, 2) :  -Inf : p_out[1,2]*p_in[1,2] :   0.0 :   True
+        (1, 3) :  -Inf : p_out[1,3]*p_in[1,3] :   0.0 :   True
+        (1, 4) :  -Inf : p_out[1,4]*p_in[1,4] :   0.0 :   True
+        (1, 5) :  -Inf : p_out[1,5]*p_in[1,5] :   0.0 :   True
+        (1, 6) :  -Inf : p_out[1,6]*p_in[1,6] :   0.0 :   True
+        (1, 7) :  -Inf : p_out[1,7]*p_in[1,7] :   0.0 :   True
+        (1, 8) :  -Inf : p_out[1,8]*p_in[1,8] :   0.0 :   True
+        (2, 0) :  -Inf : p_out[2,0]*p_in[2,0] :   0.0 :   True
+        (2, 1) :  -Inf : p_out[2,1]*p_in[2,1] :   0.0 :   True
+        (2, 2) :  -Inf : p_out[2,2]*p_in[2,2] :   0.0 :   True
+        (2, 3) :  -Inf : p_out[2,3]*p_in[2,3] :   0.0 :   True
+        (2, 4) :  -Inf : p_out[2,4]*p_in[2,4] :   0.0 :   True
+        (2, 5) :  -Inf : p_out[2,5]*p_in[2,5] :   0.0 :   True
+        (2, 6) :  -Inf : p_out[2,6]*p_in[2,6] :   0.0 :   True
+        (2, 7) :  -Inf : p_out[2,7]*p_in[2,7] :   0.0 :   True
+        (2, 8) :  -Inf : p_out[2,8]*p_in[2,8] :   0.0 :   True
+        (3, 0) :  -Inf : p_out[3,0]*p_in[3,0] :   0.0 :   True
+        (3, 1) :  -Inf : p_out[3,1]*p_in[3,1] :   0.0 :   True
+        (3, 2) :  -Inf : p_out[3,2]*p_in[3,2] :   0.0 :   True
+        (3, 3) :  -Inf : p_out[3,3]*p_in[3,3] :   0.0 :   True
+        (3, 4) :  -Inf : p_out[3,4]*p_in[3,4] :   0.0 :   True
+        (3, 5) :  -Inf : p_out[3,5]*p_in[3,5] :   0.0 :   True
+        (3, 6) :  -Inf : p_out[3,6]*p_in[3,6] :   0.0 :   True
+        (3, 7) :  -Inf : p_out[3,7]*p_in[3,7] :   0.0 :   True
+        (3, 8) :  -Inf : p_out[3,8]*p_in[3,8] :   0.0 :   True
+        (4, 0) :  -Inf : p_out[4,0]*p_in[4,0] :   0.0 :   True
+        (4, 1) :  -Inf : p_out[4,1]*p_in[4,1] :   0.0 :   True
+        (4, 2) :  -Inf : p_out[4,2]*p_in[4,2] :   0.0 :   True
+        (4, 3) :  -Inf : p_out[4,3]*p_in[4,3] :   0.0 :   True
+        (4, 4) :  -Inf : p_out[4,4]*p_in[4,4] :   0.0 :   True
+        (4, 5) :  -Inf : p_out[4,5]*p_in[4,5] :   0.0 :   True
+        (4, 6) :  -Inf : p_out[4,6]*p_in[4,6] :   0.0 :   True
+        (4, 7) :  -Inf : p_out[4,7]*p_in[4,7] :   0.0 :   True
+        (4, 8) :  -Inf : p_out[4,8]*p_in[4,8] :   0.0 :   True
+        (5, 0) :  -Inf : p_out[5,0]*p_in[5,0] :   0.0 :   True
+        (5, 1) :  -Inf : p_out[5,1]*p_in[5,1] :   0.0 :   True
+        (5, 2) :  -Inf : p_out[5,2]*p_in[5,2] :   0.0 :   True
+        (5, 3) :  -Inf : p_out[5,3]*p_in[5,3] :   0.0 :   True
+        (5, 4) :  -Inf : p_out[5,4]*p_in[5,4] :   0.0 :   True
+        (5, 5) :  -Inf : p_out[5,5]*p_in[5,5] :   0.0 :   True
+        (5, 6) :  -Inf : p_out[5,6]*p_in[5,6] :   0.0 :   True
+        (5, 7) :  -Inf : p_out[5,7]*p_in[5,7] :   0.0 :   True
+        (5, 8) :  -Inf : p_out[5,8]*p_in[5,8] :   0.0 :   True
+        (6, 0) :  -Inf : p_out[6,0]*p_in[6,0] :   0.0 :   True
+        (6, 1) :  -Inf : p_out[6,1]*p_in[6,1] :   0.0 :   True
+        (6, 2) :  -Inf : p_out[6,2]*p_in[6,2] :   0.0 :   True
+        (6, 3) :  -Inf : p_out[6,3]*p_in[6,3] :   0.0 :   True
+        (6, 4) :  -Inf : p_out[6,4]*p_in[6,4] :   0.0 :   True
+        (6, 5) :  -Inf : p_out[6,5]*p_in[6,5] :   0.0 :   True
+        (6, 6) :  -Inf : p_out[6,6]*p_in[6,6] :   0.0 :   True
+        (6, 7) :  -Inf : p_out[6,7]*p_in[6,7] :   0.0 :   True
+        (6, 8) :  -Inf : p_out[6,8]*p_in[6,8] :   0.0 :   True
+        (7, 0) :  -Inf : p_out[7,0]*p_in[7,0] :   0.0 :   True
+        (7, 1) :  -Inf : p_out[7,1]*p_in[7,1] :   0.0 :   True
+        (7, 2) :  -Inf : p_out[7,2]*p_in[7,2] :   0.0 :   True
+        (7, 3) :  -Inf : p_out[7,3]*p_in[7,3] :   0.0 :   True
+        (7, 4) :  -Inf : p_out[7,4]*p_in[7,4] :   0.0 :   True
+        (7, 5) :  -Inf : p_out[7,5]*p_in[7,5] :   0.0 :   True
+        (7, 6) :  -Inf : p_out[7,6]*p_in[7,6] :   0.0 :   True
+        (7, 7) :  -Inf : p_out[7,7]*p_in[7,7] :   0.0 :   True
+        (7, 8) :  -Inf : p_out[7,8]*p_in[7,8] :   0.0 :   True
+        (8, 0) :  -Inf : p_out[8,0]*p_in[8,0] :   0.0 :   True
+        (8, 1) :  -Inf : p_out[8,1]*p_in[8,1] :   0.0 :   True
+        (8, 2) :  -Inf : p_out[8,2]*p_in[8,2] :   0.0 :   True
+        (8, 3) :  -Inf : p_out[8,3]*p_in[8,3] :   0.0 :   True
+        (8, 4) :  -Inf : p_out[8,4]*p_in[8,4] :   0.0 :   True
+        (8, 5) :  -Inf : p_out[8,5]*p_in[8,5] :   0.0 :   True
+        (8, 6) :  -Inf : p_out[8,6]*p_in[8,6] :   0.0 :   True
+        (8, 7) :  -Inf : p_out[8,7]*p_in[8,7] :   0.0 :   True
+        (8, 8) :  -Inf : p_out[8,8]*p_in[8,8] :   0.0 :   True
+    carbon_cap : Size=9, Index=buses, Active=True
+        Key : Lower : Body      : Upper : Active
+          0 :  -Inf :  0.0*w[0] :   0.8 :   True
+          1 :  -Inf :  0.0*w[1] :   0.8 :   True
+          2 :  -Inf :  0.0*w[2] :   0.8 :   True
+          3 :  -Inf :  0.0*w[3] :   0.8 :   True
+          4 :  -Inf :  0.9*w[4] :   0.8 :   True
+          5 :  -Inf :  0.0*w[5] :   0.8 :   True
+          6 :  -Inf :      w[6] :   0.8 :   True
+          7 :  -Inf :  0.0*w[7] :   0.8 :   True
+          8 :  -Inf : 1.25*w[8] :   0.8 :   True
+    carbon_emission_flow : Size=9, Index={1, 2, 3, 4, 5, 6, 7, 8, 9}, Active=True
+        Key : Lower : Body                                                                                                                                                                                                                                                                                            : Upper : Active
+          1 :   0.0 : (p_in[0,0] + p_in[0,1] + p_in[0,2] + p_in[0,3] + p_in[0,4] + p_in[0,5] + p_in[0,6] + p_in[0,7] + p_in[0,8] + PG[0])*w[0] - (p_in[0,0]*w[0] + p_in[0,1]*w[1] + p_in[0,2]*w[2] + p_in[0,3]*w[3] + p_in[0,4]*w[4] + p_in[0,5]*w[5] + p_in[0,6]*w[6] + p_in[0,7]*w[7] + p_in[0,8]*w[8] + 0.3*PG[0]) :   0.0 :   True
+          2 :   0.0 : (p_in[1,0] + p_in[1,1] + p_in[1,2] + p_in[1,3] + p_in[1,4] + p_in[1,5] + p_in[1,6] + p_in[1,7] + p_in[1,8] + PG[1])*w[1] - (p_in[1,0]*w[0] + p_in[1,1]*w[1] + p_in[1,2]*w[2] + p_in[1,3]*w[3] + p_in[1,4]*w[4] + p_in[1,5]*w[5] + p_in[1,6]*w[6] + p_in[1,7]*w[7] + p_in[1,8]*w[8] + 0.5*PG[1]) :   0.0 :   True
+          3 :   0.0 : (p_in[2,0] + p_in[2,1] + p_in[2,2] + p_in[2,3] + p_in[2,4] + p_in[2,5] + p_in[2,6] + p_in[2,7] + p_in[2,8] + PG[2])*w[2] - (p_in[2,0]*w[0] + p_in[2,1]*w[1] + p_in[2,2]*w[2] + p_in[2,3]*w[3] + p_in[2,4]*w[4] + p_in[2,5]*w[5] + p_in[2,6]*w[6] + p_in[2,7]*w[7] + p_in[2,8]*w[8] + 0.8*PG[2]) :   0.0 :   True
+          4 :   0.0 : (p_in[3,0] + p_in[3,1] + p_in[3,2] + p_in[3,3] + p_in[3,4] + p_in[3,5] + p_in[3,6] + p_in[3,7] + p_in[3,8] + PG[3])*w[3] - (p_in[3,0]*w[0] + p_in[3,1]*w[1] + p_in[3,2]*w[2] + p_in[3,3]*w[3] + p_in[3,4]*w[4] + p_in[3,5]*w[5] + p_in[3,6]*w[6] + p_in[3,7]*w[7] + p_in[3,8]*w[8] + 0.0*PG[3]) :   0.0 :   True
+          5 :   0.0 : (p_in[4,0] + p_in[4,1] + p_in[4,2] + p_in[4,3] + p_in[4,4] + p_in[4,5] + p_in[4,6] + p_in[4,7] + p_in[4,8] + PG[4])*w[4] - (p_in[4,0]*w[0] + p_in[4,1]*w[1] + p_in[4,2]*w[2] + p_in[4,3]*w[3] + p_in[4,4]*w[4] + p_in[4,5]*w[5] + p_in[4,6]*w[6] + p_in[4,7]*w[7] + p_in[4,8]*w[8] + 0.0*PG[4]) :   0.0 :   True
+          6 :   0.0 : (p_in[5,0] + p_in[5,1] + p_in[5,2] + p_in[5,3] + p_in[5,4] + p_in[5,5] + p_in[5,6] + p_in[5,7] + p_in[5,8] + PG[5])*w[5] - (p_in[5,0]*w[0] + p_in[5,1]*w[1] + p_in[5,2]*w[2] + p_in[5,3]*w[3] + p_in[5,4]*w[4] + p_in[5,5]*w[5] + p_in[5,6]*w[6] + p_in[5,7]*w[7] + p_in[5,8]*w[8] + 0.0*PG[5]) :   0.0 :   True
+          7 :   0.0 : (p_in[6,0] + p_in[6,1] + p_in[6,2] + p_in[6,3] + p_in[6,4] + p_in[6,5] + p_in[6,6] + p_in[6,7] + p_in[6,8] + PG[6])*w[6] - (p_in[6,0]*w[0] + p_in[6,1]*w[1] + p_in[6,2]*w[2] + p_in[6,3]*w[3] + p_in[6,4]*w[4] + p_in[6,5]*w[5] + p_in[6,6]*w[6] + p_in[6,7]*w[7] + p_in[6,8]*w[8] + 0.0*PG[6]) :   0.0 :   True
+          8 :   0.0 : (p_in[7,0] + p_in[7,1] + p_in[7,2] + p_in[7,3] + p_in[7,4] + p_in[7,5] + p_in[7,6] + p_in[7,7] + p_in[7,8] + PG[7])*w[7] - (p_in[7,0]*w[0] + p_in[7,1]*w[1] + p_in[7,2]*w[2] + p_in[7,3]*w[3] + p_in[7,4]*w[4] + p_in[7,5]*w[5] + p_in[7,6]*w[6] + p_in[7,7]*w[7] + p_in[7,8]*w[8] + 0.0*PG[7]) :   0.0 :   True
+          9 :   0.0 : (p_in[8,0] + p_in[8,1] + p_in[8,2] + p_in[8,3] + p_in[8,4] + p_in[8,5] + p_in[8,6] + p_in[8,7] + p_in[8,8] + PG[8])*w[8] - (p_in[8,0]*w[0] + p_in[8,1]*w[1] + p_in[8,2]*w[2] + p_in[8,3]*w[3] + p_in[8,4]*w[4] + p_in[8,5]*w[5] + p_in[8,6]*w[6] + p_in[8,7]*w[7] + p_in[8,8]*w[8] + 0.0*PG[8]) :   0.0 :   True
+    forward_branch_flow : Size=9, Index={1, 2, 3, 4, 5, 6, 7, 8, 9}, Active=True
+        Key : Lower : Body                                                              : Upper : Active
+          1 :   0.0 : p_out[0,3] - p_in[0,3] - 17.361111111111114*(theta[0] - theta[3]) :   0.0 :   True
+          2 :   0.0 : p_out[3,4] - p_in[3,4] - 10.869565217391305*(theta[3] - theta[4]) :   0.0 :   True
+          3 :   0.0 :   p_out[4,5] - p_in[4,5] - 5.88235294117647*(theta[4] - theta[5]) :   0.0 :   True
+          4 :   0.0 : p_out[2,5] - p_in[2,5] - 17.064846416382252*(theta[2] - theta[5]) :   0.0 :   True
+          5 :   0.0 :  p_out[5,6] - p_in[5,6] - 9.920634920634921*(theta[5] - theta[6]) :   0.0 :   True
+          6 :   0.0 :  p_out[6,7] - p_in[6,7] - 13.88888888888889*(theta[6] - theta[7]) :   0.0 :   True
+          7 :   0.0 :               p_out[7,1] - p_in[7,1] - 16.0*(theta[7] - theta[1]) :   0.0 :   True
+          8 :   0.0 :  p_out[7,8] - p_in[7,8] - 6.211180124223603*(theta[7] - theta[8]) :   0.0 :   True
+          9 :   0.0 :  p_out[8,3] - p_in[8,3] - 11.76470588235294*(theta[8] - theta[3]) :   0.0 :   True
+    generator_limits : Size=6, Index={1, 2, 3, 4, 5, 6}, Active=True
+        Key : Lower : Body                   : Upper : Active
+          1 :  -Inf : 0.099999999999 - PG[0] :   0.0 :   True
+          2 :  -Inf : PG[0] - 2.500000000001 :   0.0 :   True
+          3 :  -Inf : 0.099999999999 - PG[1] :   0.0 :   True
+          4 :  -Inf : PG[1] - 3.000000000001 :   0.0 :   True
+          5 :  -Inf : 0.099999999999 - PG[2] :   0.0 :   True
+          6 :  -Inf : PG[2] - 2.700000000001 :   0.0 :   True
+    power_balance_constraints : Size=9, Index={1, 2, 3, 4, 5, 6, 7, 8, 9}, Active=True
+        Key : Lower : Body                                                                                                                                                                                                                                     : Upper : Active
+          1 :   0.0 : PG[0] - (p_out[0,0] - p_in[0,0] + p_out[0,1] - p_in[0,1] + p_out[0,2] - p_in[0,2] + p_out[0,3] - p_in[0,3] + p_out[0,4] - p_in[0,4] + p_out[0,5] - p_in[0,5] + p_out[0,6] - p_in[0,6] + p_out[0,7] - p_in[0,7] + p_out[0,8] - p_in[0,8]) :   0.0 :   True
+          2 :   0.0 : PG[1] - (p_out[1,0] - p_in[1,0] + p_out[1,1] - p_in[1,1] + p_out[1,2] - p_in[1,2] + p_out[1,3] - p_in[1,3] + p_out[1,4] - p_in[1,4] + p_out[1,5] - p_in[1,5] + p_out[1,6] - p_in[1,6] + p_out[1,7] - p_in[1,7] + p_out[1,8] - p_in[1,8]) :   0.0 :   True
+          3 :   0.0 : PG[2] - (p_out[2,0] - p_in[2,0] + p_out[2,1] - p_in[2,1] + p_out[2,2] - p_in[2,2] + p_out[2,3] - p_in[2,3] + p_out[2,4] - p_in[2,4] + p_out[2,5] - p_in[2,5] + p_out[2,6] - p_in[2,6] + p_out[2,7] - p_in[2,7] + p_out[2,8] - p_in[2,8]) :   0.0 :   True
+          4 :   0.0 :           p_out[3,0] - p_in[3,0] + p_out[3,1] - p_in[3,1] + p_out[3,2] - p_in[3,2] + p_out[3,3] - p_in[3,3] + p_out[3,4] - p_in[3,4] + p_out[3,5] - p_in[3,5] + p_out[3,6] - p_in[3,6] + p_out[3,7] - p_in[3,7] + p_out[3,8] - p_in[3,8] :   0.0 :   True
+          5 :  -0.9 :           p_out[4,0] - p_in[4,0] + p_out[4,1] - p_in[4,1] + p_out[4,2] - p_in[4,2] + p_out[4,3] - p_in[4,3] + p_out[4,4] - p_in[4,4] + p_out[4,5] - p_in[4,5] + p_out[4,6] - p_in[4,6] + p_out[4,7] - p_in[4,7] + p_out[4,8] - p_in[4,8] :  -0.9 :   True
+          6 :   0.0 :           p_out[5,0] - p_in[5,0] + p_out[5,1] - p_in[5,1] + p_out[5,2] - p_in[5,2] + p_out[5,3] - p_in[5,3] + p_out[5,4] - p_in[5,4] + p_out[5,5] - p_in[5,5] + p_out[5,6] - p_in[5,6] + p_out[5,7] - p_in[5,7] + p_out[5,8] - p_in[5,8] :   0.0 :   True
+          7 :  -1.0 :           p_out[6,0] - p_in[6,0] + p_out[6,1] - p_in[6,1] + p_out[6,2] - p_in[6,2] + p_out[6,3] - p_in[6,3] + p_out[6,4] - p_in[6,4] + p_out[6,5] - p_in[6,5] + p_out[6,6] - p_in[6,6] + p_out[6,7] - p_in[6,7] + p_out[6,8] - p_in[6,8] :  -1.0 :   True
+          8 :   0.0 :           p_out[7,0] - p_in[7,0] + p_out[7,1] - p_in[7,1] + p_out[7,2] - p_in[7,2] + p_out[7,3] - p_in[7,3] + p_out[7,4] - p_in[7,4] + p_out[7,5] - p_in[7,5] + p_out[7,6] - p_in[7,6] + p_out[7,7] - p_in[7,7] + p_out[7,8] - p_in[7,8] :   0.0 :   True
+          9 : -1.25 :           p_out[8,0] - p_in[8,0] + p_out[8,1] - p_in[8,1] + p_out[8,2] - p_in[8,2] + p_out[8,3] - p_in[8,3] + p_out[8,4] - p_in[8,4] + p_out[8,5] - p_in[8,5] + p_out[8,6] - p_in[8,6] + p_out[8,7] - p_in[8,7] + p_out[8,8] - p_in[8,8] : -1.25 :   True
+    power_branch_flow : Size=18, Index={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18}, Active=True
+        Key : Lower               : Body                                     : Upper              : Active
+          1 :                -Inf : 17.361111111111114*(theta[0] - theta[3]) :  2.500000000000015 :   True
+          2 :  -2.500000000000015 : 17.361111111111114*(theta[0] - theta[3]) :               +Inf :   True
+          3 :                -Inf : 10.869565217391305*(theta[3] - theta[4]) :  2.500000000000015 :   True
+          4 :  -2.500000000000015 : 10.869565217391305*(theta[3] - theta[4]) :               +Inf :   True
+          5 :                -Inf :   5.88235294117647*(theta[4] - theta[5]) :  1.499999999999985 :   True
+          6 :  -1.499999999999985 :   5.88235294117647*(theta[4] - theta[5]) :               +Inf :   True
+          7 :                -Inf : 17.064846416382252*(theta[2] - theta[5]) : 3.0000000000000298 :   True
+          8 : -3.0000000000000298 : 17.064846416382252*(theta[2] - theta[5]) :               +Inf :   True
+          9 :                -Inf :  9.920634920634921*(theta[5] - theta[6]) :  1.499999999999985 :   True
+         10 :  -1.499999999999985 :  9.920634920634921*(theta[5] - theta[6]) :               +Inf :   True
+         11 :                -Inf :  13.88888888888889*(theta[6] - theta[7]) :  2.500000000000015 :   True
+         12 :  -2.500000000000015 :  13.88888888888889*(theta[6] - theta[7]) :               +Inf :   True
+         13 :                -Inf :               16.0*(theta[7] - theta[1]) :  2.500000000000015 :   True
+         14 :  -2.500000000000015 :               16.0*(theta[7] - theta[1]) :               +Inf :   True
+         15 :                -Inf :  6.211180124223603*(theta[7] - theta[8]) :  2.500000000000015 :   True
+         16 :  -2.500000000000015 :  6.211180124223603*(theta[7] - theta[8]) :               +Inf :   True
+         17 :                -Inf :  11.76470588235294*(theta[8] - theta[3]) :  2.500000000000015 :   True
+         18 :  -2.500000000000015 :  11.76470588235294*(theta[8] - theta[3]) :               +Inf :   True
+
+1 Suffix Declarations
+    dual : Direction=IMPORT, Datatype=FLOAT
+        Key                          : Value
+             backward_branch_flow[1] :     -2404.4189549060316
+             backward_branch_flow[2] :      -2404.418953483748
+             backward_branch_flow[3] :     -2404.4189504417077
+             backward_branch_flow[4] :     -2404.4189523272657
+             backward_branch_flow[5] :       -2404.41895041318
+             backward_branch_flow[6] :      -2404.418952005349
+             backward_branch_flow[7] :     -2404.4189529147534
+             backward_branch_flow[8] :      -2404.418952698799
+             backward_branch_flow[9] :     -2404.4189533477766
+          branch_flow_direction[0,0] :      -65.45454545472762
+          branch_flow_direction[0,1] :      -65.45454545472762
+          branch_flow_direction[0,2] :      -65.45454545472762
+          branch_flow_direction[0,3] :      -65.45454545433888
+          branch_flow_direction[0,4] :      -65.45454545472762
+          branch_flow_direction[0,5] :      -65.45454545472762
+          branch_flow_direction[0,6] :      -65.45454545472762
+          branch_flow_direction[0,7] :      -65.45454545472762
+          branch_flow_direction[0,8] :      -65.45454545472762
+          branch_flow_direction[1,0] :      -65.45454545472762
+          branch_flow_direction[1,1] :      -65.45454545472762
+          branch_flow_direction[1,2] :      -65.45454545472762
+          branch_flow_direction[1,3] :      -65.45454545472762
+          branch_flow_direction[1,4] :      -65.45454545472762
+          branch_flow_direction[1,5] :      -65.45454545472762
+          branch_flow_direction[1,6] :      -65.45454545472762
+          branch_flow_direction[1,7] :      -65.45454545426662
+          branch_flow_direction[1,8] :      -65.45454545472762
+          branch_flow_direction[2,0] :      -65.45454545472762
+          branch_flow_direction[2,1] :      -65.45454545472762
+          branch_flow_direction[2,2] :      -65.45454545472762
+          branch_flow_direction[2,3] :      -65.45454545472762
+          branch_flow_direction[2,4] :      -65.45454545472762
+          branch_flow_direction[2,5] :      -67.45864326485535
+          branch_flow_direction[2,6] :      -65.45454545472762
+          branch_flow_direction[2,7] :      -65.45454545472762
+          branch_flow_direction[2,8] :      -65.45454545472762
+          branch_flow_direction[3,0] :      -70.16827585262774
+          branch_flow_direction[3,1] :      -65.45454545472762
+          branch_flow_direction[3,2] :      -65.45454545472762
+          branch_flow_direction[3,3] :      -65.45454545472762
+          branch_flow_direction[3,4] :       -97.8849222806666
+          branch_flow_direction[3,5] :      -65.45454545472762
+          branch_flow_direction[3,6] :      -65.45454545472762
+          branch_flow_direction[3,7] :      -65.45454545472762
+          branch_flow_direction[3,8] :      -85.65849299702589
+          branch_flow_direction[4,0] :      -65.45454545472762
+          branch_flow_direction[4,1] :      -65.45454545472762
+          branch_flow_direction[4,2] :      -65.45454545472762
+          branch_flow_direction[4,3] :      -97.88492603269081
+          branch_flow_direction[4,4] :      -65.45454545472762
+          branch_flow_direction[4,5] :       -83.7752485214405
+          branch_flow_direction[4,6] :      -65.45454545472762
+          branch_flow_direction[4,7] :      -65.45454545472762
+          branch_flow_direction[4,8] :      -65.45454545472762
+          branch_flow_direction[5,0] :      -65.45454545472762
+          branch_flow_direction[5,1] :      -65.45454545472762
+          branch_flow_direction[5,2] :       -67.4587741442713
+          branch_flow_direction[5,3] :      -65.45454545472762
+          branch_flow_direction[5,4] :      -62.77644783667384
+          branch_flow_direction[5,5] :      -65.45454545472762
+          branch_flow_direction[5,6] :      -67.39444849389623
+          branch_flow_direction[5,7] :      -65.45454545472762
+          branch_flow_direction[5,8] :      -65.45454545472762
+          branch_flow_direction[6,0] :      -65.45454545472762
+          branch_flow_direction[6,1] :      -65.45454545472762
+          branch_flow_direction[6,2] :      -65.45454545472762
+          branch_flow_direction[6,3] :      -65.45454545472762
+          branch_flow_direction[6,4] :      -65.45454545472762
+          branch_flow_direction[6,5] :      -95.00232884281759
+          branch_flow_direction[6,6] :      -65.45454545472762
+          branch_flow_direction[6,7] :      -80.70628463865171
+          branch_flow_direction[6,8] :      -65.45454545472762
+          branch_flow_direction[7,0] :      -65.45454545472762
+          branch_flow_direction[7,1] :      -55.85392953976521
+          branch_flow_direction[7,2] :      -65.45454545472762
+          branch_flow_direction[7,3] :      -65.45454545472762
+          branch_flow_direction[7,4] :      -65.45454545472762
+          branch_flow_direction[7,5] :      -65.45454545472762
+          branch_flow_direction[7,6] :      -80.69723385350669
+          branch_flow_direction[7,7] :      -65.45454545472762
+          branch_flow_direction[7,8] :      -76.03335157007673
+          branch_flow_direction[8,0] :      -65.45454545472762
+          branch_flow_direction[8,1] :      -65.45454545472762
+          branch_flow_direction[8,2] :      -65.45454545472762
+          branch_flow_direction[8,3] :       -85.6584935488675
+          branch_flow_direction[8,4] :      -65.45454545472762
+          branch_flow_direction[8,5] :      -65.45454545472762
+          branch_flow_direction[8,6] :      -65.45454545472762
+          branch_flow_direction[8,7] :      -76.03335115270322
+          branch_flow_direction[8,8] :      -65.45454545472762
+                       carbon_cap[0] :  -8.181752624974999e-07
+                       carbon_cap[1] :  -8.181752624974999e-07
+                       carbon_cap[2] :  -8.181752624974999e-07
+                       carbon_cap[3] :  -8.181752624974999e-07
+                       carbon_cap[4] :  -2.631980055185127e-06
+                       carbon_cap[5] :  -8.181752624974999e-07
+                       carbon_cap[6] :  -3.507495036376674e-06
+                       carbon_cap[7] :  -8.181752624974999e-07
+                       carbon_cap[8] : -2.3322124849356888e-06
+             carbon_emission_flow[1] :      2123414445.8100703
+             carbon_emission_flow[2] :     -166197907189.84637
+             carbon_emission_flow[3] :      -771275857055.8219
+             carbon_emission_flow[4] :  2.6145301524031883e-06
+             carbon_emission_flow[5] :   5.484519797264694e-06
+             carbon_emission_flow[6] :     -189.43089414986454
+             carbon_emission_flow[7] :   5.803629957248419e-06
+             carbon_emission_flow[8] :  4.6925933457382185e-06
+             carbon_emission_flow[9] :  2.4336696950211783e-06
+              forward_branch_flow[1] :      2404.4189546818293
+              forward_branch_flow[2] :      2404.4189532255127
+              forward_branch_flow[3] :      2404.4189506003913
+              forward_branch_flow[4] :        2404.41895213965
+              forward_branch_flow[5] :      2404.4189499722165
+              forward_branch_flow[6] :       2404.418952011308
+              forward_branch_flow[7] :      2404.4189533708472
+              forward_branch_flow[8] :      2404.4189520519876
+              forward_branch_flow[9] :       2404.418953281784
+                 generator_limits[1] :  -8.548876456611717e-07
+                 generator_limits[2] : -4.0048504699878185e-07
+                 generator_limits[3] :  -5.262502126247539e-07
+                 generator_limits[4] :  -3.951968723322844e-07
+                 generator_limits[5] :  -7.786773360971334e-07
+                 generator_limits[6] :  -3.720166972984818e-07
+        power_balance_constraints[1] :      2404.4189554379586
+        power_balance_constraints[2] :       2404.418953401841
+        power_balance_constraints[3] :       2404.418952814233
+        power_balance_constraints[4] :     -2404.4189542043555
+        power_balance_constraints[5] :       -2404.41895079062
+        power_balance_constraints[6] :     -2404.4189516526844
+        power_balance_constraints[7] :      -2404.418950546196
+        power_balance_constraints[8] :     -2404.4189528123147
+        power_balance_constraints[9] :     -2404.4189521441726
+               power_branch_flow[10] :  3.4853475481899234e-07
+               power_branch_flow[11] :  -2.096463561610841e-07
+               power_branch_flow[12] :   3.485347529630265e-07
+               power_branch_flow[13] :  -1.702805563332491e-07
+               power_branch_flow[14] :   5.660994671866203e-07
+               power_branch_flow[15] :  -3.680738719728071e-07
+               power_branch_flow[16] :  2.0315912716777836e-07
+               power_branch_flow[17] : -2.1613864256945189e-07
+               power_branch_flow[18] :   3.319580834831908e-07
+                power_branch_flow[1] :  -4.004850469990232e-07
+                power_branch_flow[2] :  1.9447191366410967e-07
+                power_branch_flow[3] : -3.0265628156198497e-07
+                power_branch_flow[4] :  2.3068022582772628e-07
+                power_branch_flow[5] :  -3.173299725313639e-07
+                power_branch_flow[6] :   6.982665206724308e-07
+                power_branch_flow[7] : -3.1782331904121773e-07
+                power_branch_flow[8] :  1.6609732461008082e-07
+                power_branch_flow[9] :  -5.833447486062225e-07
+
+26 Declarations: buses lines cost_dims PD PG_MAX PG_MIN B C PL_MAX Emis_cap w_g PG theta w p_out p_in branch_flow_direction forward_branch_flow backward_branch_flow power_branch_flow power_balance_constraints generator_limits carbon_emission_flow carbon_cap obj_cost dual
