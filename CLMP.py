@@ -9,6 +9,7 @@ import pandapower as pp
 import pandapower.networks as pn
 from pandapower.pypower.makePTDF import makePTDF
 from pandapower.pypower.makeYbus import makeYbus
+from pandapower.pypower.makeBdc import makeBdc
 from pandapower.pypower.idx_brch import F_BUS, T_BUS
 from pandapower.pypower.idx_bus import BUS_TYPE, REF, BUS_I
 import os
@@ -36,6 +37,7 @@ class CLMP:
         branch = ppc['branch']
         self.branch_idx = range(branch.shape[0])
         ref_bus = np.where(bus[:, BUS_TYPE] == REF)[0][0]
+        Bbus, _, _, _, _ = makeBdc(bus, branch)
         
         PTDF_matrix = makePTDF(baseMVA, bus, branch, slack=ref_bus,
                 result_side=0, using_sparse_solver=True, branch_id=None, reduced=False)
@@ -96,7 +98,15 @@ class CLMP:
         self.model.Pf_neg = Var(self.bus_idx, self.bus_idx, domain=Reals, initialize=Pf_neg)
         self.model.CI = Var(self.bus_idx, domain=Reals, initialize=[10]*len(self.bus_idx))
         self.model.Dir = Var(self.bus_idx, self.bus_idx, domain=Binary, initialize=Dir)
-     
+
+        # for i in self.bus_idx:
+        #     self.model.Pf_pos[i, i].fix(0)
+        #     self.model.Pf_neg[i, i].fix(0)
+        # for i in self.bus_idx:
+        #     for j in set(np.where(Bbus.toarray()[i, :] == 0)[0]):
+        #         self.model.Pf_pos[i, j].fix(0)
+        #         self.model.Pf_neg[i, j].fix(0)
+        
         # 创建模型约束
         # def power_balance(model, i):
         #     return sum(model.Pg[g] * model.BusGen[i, g] for g in self.gen_idx) + sum(model.Pf_pos[j, i] for j in self.bus_idx) == \
@@ -151,7 +161,6 @@ class CLMP:
         return results
     
     def read_prime_solution(self):
-        
         Pg = np.zeros(len(self.gen_idx))
         Pf_pos = np.zeros((len(self.bus_idx), len(self.bus_idx)))
         Pf_neg = np.zeros((len(self.bus_idx), len(self.bus_idx)))
