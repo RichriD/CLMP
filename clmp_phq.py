@@ -45,7 +45,7 @@ def find_all_branches(branch, from_bus, to_bus):
 
 
 class CLMP:
-    def __init__(self, net, e_g, solver_name, verbose, path, solver_executable=ipopt_path):
+    def __init__(self, net, e_g, solver_name, verbose, path=None, solver_executable=ipopt_path):
         self.net = net
         self.e_g = e_g
         self.solver_name = solver_name
@@ -198,11 +198,11 @@ class CLMP:
                 for j in self.model.buses  # 变量定义的时候已经将不存在的支路始终置零
             )
             if self.type_list[i] in {2, 3}:  # 根据节点类型添加
-                # self.model.power_balance_constraints.add(expr=self.model.PG[i] - self.model.PD[i] - real_power_out == 0)
-                self.model.power_balance_constraints.add(expr=-self.model.PG[i] + self.model.PD[i] + real_power_out == 0)
+                self.model.power_balance_constraints.add(expr=self.model.PG[i] - self.model.PD[i] - real_power_out == 0)
+                # self.model.power_balance_constraints.add(expr=-self.model.PG[i] + self.model.PD[i] + real_power_out == 0)
             else:
-                # self.model.power_balance_constraints.add(expr=- self.model.PD[i] - real_power_out == 0)
-                self.model.power_balance_constraints.add(expr=self.model.PD[i] + real_power_out == 0)
+                self.model.power_balance_constraints.add(expr=- self.model.PD[i] - real_power_out == 0)
+                # self.model.power_balance_constraints.add(expr=self.model.PD[i] + real_power_out == 0)
         # 2. 双向潮流等效约束, 约束数量理论上为 2l 条, 分别写在两个list中, -> lambda_2
         self.model.forward_flow_eq = ConstraintList()
         self.model.backward_flow_eq = ConstraintList()
